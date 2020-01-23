@@ -3,24 +3,24 @@
 namespace controllers;
 
 use core\View;
+use core\Database;
 
 class MainController
 {
 
     private $view;
 
+    private $db;
+
     public function __construct()
     {
         $this->view = new View('app');
+        $this->db = new Database();
     }
 
     public function main()
     {
-
-        $articles = [
-            ['name' => 'Статья 1', 'text' => 'Текст статьи 1'],
-            ['name' => 'Статья 2', 'text' => 'Текст статьи 2'],
-        ];
+        $articles = $this->db->query('SELECT * FROM `articles`;');
         $this->view->renderHtml('views/Main.php', ['articles' => $articles]);
     }
 

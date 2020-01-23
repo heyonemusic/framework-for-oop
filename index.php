@@ -3,9 +3,6 @@
 // Подключение автозагрузки файлов
 require_once 'vendor/autoload.php';
 
-//Главная страница
-use controllers\MainController;
-
 $route = $_GET['route'];
 $routes = require __DIR__ . '/vendor/core/Routes.php';
 
